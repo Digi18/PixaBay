@@ -6,6 +6,8 @@ import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.pixa.Constant;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,11 +38,11 @@ public class PhotoRepository {
         ApiService apiService = retrofit.create(ApiService.class);
 
        Map<String,String> map = new HashMap<>();
-        map.put("key","16983403-ec9e92eb691fcb6038e15f8c2");
+       map.put("key", Constant.API_KEY);
 
-        Call<Photos> hitList = apiService.getPhotos(map);
+       Call<Photos> hitList = apiService.getPhotos(map);
 
-        hitList.enqueue(new Callback<Photos>() {
+       hitList.enqueue(new Callback<Photos>() {
             @Override
             public void onResponse(Call<Photos> call, Response<Photos> response) {
 
